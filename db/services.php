@@ -15,16 +15,27 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version info
- *
- * @package    report_studentmonitor
+ * Web services for report Student Monitor
+ * @package   report_studentmonitor
+ * @subpackage db
+ * @since Moodle 3.9
  * @copyright  2021 Iader E. Garcia G. <iadergg@gmail.com>
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->component = 'report_studentmonitor';
-$plugin->version = 'alpha1';
-$plugin->version = 202105120945;    // Plugin version
-$plugin->requires = 2018050800;
+$functions = array(
+    'report_studentmonitor_get_categories' => array(
+        'classname'          => 'report_studentmonitor_external',
+        'methodname'         => 'get_course_categories',
+        'description'        => 'Get course categories of Moodle site.',
+        'requiredcapability' => '',
+        'type'               => 'read',
+        'ajax'               => true,
+        'restrictedusers'    => 0,
+        'enabled'            => 1,
+        'downloadfiles'      => 0,
+        'uploadfiles'        => 0
+    )
+);
