@@ -1,0 +1,21 @@
+<div id="accordion">
+
+    {{# course_categories }}
+    <div class="card">
+        <div class="card-header" id="heading-{{ idnumber }}">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#{{ idnumber }}" aria-expanded="false"
+                    aria-controls="collapseOne">
+                    {{name}}
+                </button>
+            </h5>
+        </div>
+
+        <div id="{{ idnumber }}" class="collapse" aria-labelledby="heading-{{ idnumber }}" data-parent="#accordion">
+            <div class="card-body">
+                
+            </div>
+        </div>
+    </div>
+    {{/ course_categories }}
+</div>
