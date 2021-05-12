@@ -45,7 +45,7 @@ class manager_course_categories {
         $table = "course_categories";
         $select = "parent = ".$idParent." AND id <> 1";
 
-        $courseCategories = $DB->get_records_select($table, $select);
+        $courseCategories = $DB->get_records_select($table, $select, null, 'id');
 
         return $courseCategories;
     }
