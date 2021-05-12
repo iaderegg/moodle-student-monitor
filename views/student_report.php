@@ -28,7 +28,7 @@ require_once($CFG->libdir.'/adminlib.php');
 
 require_login();
 
-$url = new moodle_url('/report/studentmonitor/index.php');
+$url = new moodle_url('/report/studentmonitor/student_report.php');
 
 $PAGE->set_context(context_system::instance());
 
@@ -46,7 +46,7 @@ echo $OUTPUT->header();
 
 $data = new stdClass();
 
-//echo $OUTPUT->render_from_template('report_studentmonitor/index', $data);
+echo $OUTPUT->render_from_template('report_studentmonitor/index', $data);
 
 echo $OUTPUT->footer();
 

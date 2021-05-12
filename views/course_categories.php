@@ -28,7 +28,7 @@ require_once($CFG->libdir.'/adminlib.php');
 
 require_login();
 
-$url = new moodle_url('/report/studentmonitor/index.php');
+$url = new moodle_url('/report/studentmonitor/course_categories.php');
 
 $PAGE->set_context(context_system::instance());
 
@@ -42,11 +42,15 @@ $PAGE->requires->css('/report/studentmonitor/styles/datatables.min.css', true);
 
 $PAGE->requires->js_call_amd('report_studentmonitor/studentmonitor', 'init');
 
-echo $OUTPUT->header();
+$managerCourseCategories = new report_studentmonitor\manager_course_categories();
+$courseCategories = $managerCourseCategories->get_course_categories(0);
 
 $data = new stdClass();
+$data->course_categories = array_values($courseCategories);
 
-//echo $OUTPUT->render_from_template('report_studentmonitor/index', $data);
+echo $OUTPUT->header();
+
+echo $OUTPUT->render_from_template('report_studentmonitor/course_categories', $data);
 
 echo $OUTPUT->footer();
 
