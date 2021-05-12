@@ -26,10 +26,22 @@
 defined('MOODLE_INTERNAL') || die;
 
 $functions = array(
-    'report_studentmonitor_get_categories' => array(
+    'report_studentmonitor_get_course_categories' => array(
         'classname'          => 'report_studentmonitor_external',
         'methodname'         => 'get_course_categories',
-        'description'        => 'Get course categories of Moodle site.',
+        'description'        => 'Get course categories from the Moodle site.',
+        'requiredcapability' => '',
+        'type'               => 'read',
+        'ajax'               => true,
+        'restrictedusers'    => 0,
+        'enabled'            => 1,
+        'downloadfiles'      => 0,
+        'uploadfiles'        => 0
+    ),
+    'report_studentmonitor_get_courses_by_category' => array(
+        'classname'          => 'report_studentmonitor_external',
+        'methodname'         => 'get_courses_by_category',
+        'description'        => 'Get courses by a course category from the Moodle site.',
         'requiredcapability' => '',
         'type'               => 'read',
         'ajax'               => true,

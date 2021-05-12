@@ -46,7 +46,7 @@ class report_studentmonitor_external extends external_api
     {
         return new external_function_parameters(
             array(
-                'parent' => new external_value(PARAM_INT, 'ID of the parent category')
+                'categoryCourseId' => new external_value(PARAM_INT, 'ID of the parent category')
             )
         );
     }
@@ -57,15 +57,17 @@ class report_studentmonitor_external extends external_api
      * @param  int $parent
      * @return array with course categories JSON and warnings
      */
-    public function get_course_categories($parent)
+    public function get_course_categories($categoryCourseId)
     {
         $courseCategoriesArray = array();
 
         $courseCategoriesManager = new manager_course_categories;
-        $courseCategoriesArray = $courseCategoriesManager->get_course_categories($parent);
+        $courseCategoriesArray = $courseCategoriesManager->get_course_categories($categoryCourseId);
+        $courses = $courseCategoriesManager->get_courses_by_category($categoryCourseId);
 
         return array(
             'course_categories' => json_encode($courseCategoriesArray),
+            'courses' => json_encode($courses),
             'warnings' => []
         );
     }
@@ -79,7 +81,8 @@ class report_studentmonitor_external extends external_api
     public function get_course_categories_returns()
     {
         return new external_single_structure(array(
-            'course_categories' => new external_value(PARAM_RAW, 'JSON for course categories'),
+            'course_categories' => new external_value(PARAM_RAW, 'JSON for course categories.'),
+            'courses' => new external_value(PARAM_RAW, 'JSON for courses in a category.'),
             'warnings' => new external_warnings()
         ));
     }

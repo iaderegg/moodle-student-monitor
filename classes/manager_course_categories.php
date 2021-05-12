@@ -47,6 +47,24 @@ class manager_course_categories {
 
         $courseCategories = $DB->get_records_select($table, $select, null, 'id');
 
-        return $courseCategories;
+        return array_values($courseCategories);
+    }
+    
+    /**
+     * get_courses_by_category
+     *
+     * @return void
+     */
+    public function get_courses_by_category($idCategory){
+
+        global $DB;
+
+        $table = "course";
+        $select = "category = ".$idCategory." AND visible = 1";
+
+        $courses = $DB->get_records_select($table, $select, null, 'fullname');
+
+        return array_values($courses);
+        
     }
 }

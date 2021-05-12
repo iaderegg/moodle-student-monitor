@@ -35,17 +35,17 @@ $PAGE->set_url($url);
 $PAGE->set_title(get_string("title", "report_studentmonitor"));
 $PAGE->set_heading(get_string("studentmonitor:studentmonitor", "report_studentmonitor"));
 
-$PAGE->requires->css('/report/studentmonitor/styles/index.css', true);
+$PAGE->requires->css('/report/studentmonitor/styles/course_categories.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/sweetalert.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/datatables.min.css', true);
 
-$PAGE->requires->js_call_amd('report_studentmonitor/studentmonitor', 'init');
+$PAGE->requires->js_call_amd('report_studentmonitor/courseCategories', 'init');
 
 $managerCourseCategories = new report_studentmonitor\manager_course_categories();
 $courseCategories = $managerCourseCategories->get_course_categories(0);
 
 $data = new stdClass();
-$data->course_categories = array_values($courseCategories);
+$data->course_categories = $courseCategories;
 
 echo $OUTPUT->header();
 

@@ -26,5 +26,5 @@ defined('MOODLE_INTERNAL') || die;
 
 $plugin->component = 'report_studentmonitor';
 $plugin->version = 'alpha1';
-$plugin->version = 202105120945;    // Plugin version
+$plugin->version = 202105121017;    // Plugin version
 $plugin->requires = 2018050800;
