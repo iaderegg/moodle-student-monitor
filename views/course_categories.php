@@ -40,7 +40,6 @@ $PAGE->requires->css('/report/studentmonitor/styles/datatables.min.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/dataTables.bootstrap4.min.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/buttons.bootstrap4.min.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/sweetalert.css', true);
-$PAGE->requires->css('/report/studentmonitor/assets/font-awesome/css/font-awesome.min.css', true);
 
 $PAGE->requires->js_call_amd('report_studentmonitor/courseCategories', 'init');
 
