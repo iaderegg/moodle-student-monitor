@@ -34,13 +34,16 @@ define(['jquery',
         $('#table-courses-' + idNumberCourseCategory).DataTable({
             "destroy": true,
             "columns": [{
-                    "title": "Nombre"
+                    "title": "Nombre",
+                    "data": "fullname"
                 },
                 {
-                    "title": "Estudiantes"
+                    "title": "Estudiantes",
+                    "data": "students"
                 },
                 {
-                    "title": "Ver"
+                    "title": "Ver",
+                    "data": "professors"
                 }
             ],
             "data": courses,
