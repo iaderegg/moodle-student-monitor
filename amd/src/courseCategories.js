@@ -85,7 +85,7 @@ define(['jquery',
                             var courseCategories = JSON.parse(response.course_categories);
                             var courses = JSON.parse(response.courses);
 
-                            if (courseCategories) {
+                            if (courseCategories.length > 0) {
 
                                 if (courses.length > 0) {
                                     var context = {
@@ -99,26 +99,37 @@ define(['jquery',
                                         courseCategoryIdNumber: courseCategoryIdNumber
                                     };
                                 }
-
-                                templates.render('report_studentmonitor/child_categories', context)
-                                    .then(function (html, js) {
-                                        $('#card-body-' + courseCategoryIdNumber).html('');
-                                        templates.appendNodeContents('#card-body-' + courseCategoryIdNumber, html, js);
-
-                                        if (courses.length > 0) {
-                                            $('#id-'+courseCategoryIdNumber).on('click', function(){
-                                                createTable(courseCategoryIdNumber, courses);
-                                            });
-                                        }
-
-                                        if(courseCategories.length == 0){
-                                            createTable(courseCategoryIdNumber, courses);
-                                        }
-
-                                    }).fail(function (ex) {
-                                        console.log(ex);
-                                    });
+                            }else{
+                                if (courses.length > 0) {
+                                    var context = {
+                                        courseCategoryIdNumber: courseCategoryIdNumber,
+                                        hasCourses: 1
+                                    };
+                                }else{
+                                    var context = {
+                                        courseCategoryIdNumber: courseCategoryIdNumber
+                                    };
+                                }
                             }
+
+                            templates.render('report_studentmonitor/child_categories', context)
+                                .then(function (html, js) {
+                                    $('#card-body-' + courseCategoryIdNumber).html('');
+                                    templates.appendNodeContents('#card-body-' + courseCategoryIdNumber, html, js);
+
+                                    if (courses.length > 0) {
+                                        $('#id-' + courseCategoryIdNumber).on('click', function () {
+                                            createTable(courseCategoryIdNumber, courses);
+                                        });
+                                    }
+
+                                    if (courseCategories.length == 0) {
+                                        createTable(courseCategoryIdNumber, courses);
+                                    }
+
+                                }).fail(function (ex) {
+                                    console.log(ex);
+                                });
                         }
                     });
 
