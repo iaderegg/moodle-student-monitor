@@ -27,3 +27,6 @@ defined('MOODLE_INTERNAL') || die();
 $string['pluginname'] = 'Student monitor';
 $string['title'] = 'Monitor';
 $string['studentmonitor:studentmonitor'] = 'Students monitor';
+
+$string['studentmonitor:title_icon_view_course'] = "View course";
+$string['studentmonitor:title_icon_list_participants'] = "List of participants";

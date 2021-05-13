@@ -26,4 +26,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Monitor de estudiantes';
 $string['title'] = 'Monitor';
-$string['studentmonitor:studentmonitor'] = 'Monitor de estudiantes';
+$string['studentmonitor:studentmonitor'] = "Monitor de estudiantes";
+
+$string['studentmonitor:title_icon_view_course'] = "Ver curso";
+$string['studentmonitor:title_icon_list_participants'] = "Listado de participantes";
