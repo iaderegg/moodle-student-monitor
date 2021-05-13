@@ -108,6 +108,10 @@ define(['jquery',
                                             });
                                         }
 
+                                        if(courseCategories.length == 0){
+                                            createTable(courseCategoryIdNumber, courses);
+                                        }
+
                                     }).fail(function (ex) {
                                         console.log(ex);
                                     });

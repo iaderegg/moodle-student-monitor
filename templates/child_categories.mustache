@@ -25,7 +25,6 @@
             </div>
         </div>
     </div>
-    {{/ courseCategories }}
     {{# hasCourses }}
     <div class="card">
         <div class="card-header" id="heading-courses-{{ courseCategoryIdNumber }}">
@@ -49,5 +48,13 @@
     </div>
 
     {{/ hasCourses}}
+    {{/ courseCategories }}
+    {{^ courseCategories}}
+    {{# hasCourses }}
+    <table id="table-courses-{{ courseCategoryIdNumber }}" class="table table-striped">
+    </table>
+    {{/ hasCourses}}
+    {{/ courseCategories}}
+    
 
 </div>
