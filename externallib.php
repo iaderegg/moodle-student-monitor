@@ -59,6 +59,8 @@ class report_studentmonitor_external extends external_api
      */
     public function get_data_table_course_categories($categoryCourseId)
     {
+        global $CFG; 
+
         $courseCategoriesArray = array();
         $coursesToReturn = array();
 
@@ -70,8 +72,15 @@ class report_studentmonitor_external extends external_api
 
             $courseToReturn = new stdClass();
 
-            $courseOptions = "<span class='fa fa-eye icon-options-course' id='icon-view-'".s($course->id)."></span>";
-            $courseOptions .= "<span class='fa fa-list icon-options-course' id='icon-list-'".s($course->id)."></span>";
+            $courseOptions = "<a href='".$CFG->wwwroot."/course/view.php?id=".$course->id."' target='_blank'>";
+            $courseOptions .= "<span class='fa fa-eye icon-options-course' ";
+            $courseOptions .= "title='".get_string("studentmonitor:title_icon_view_course", "report_studentmonitor")."' id='icon-view-'";
+            $courseOptions .= s($course->id)."></span>";
+            $courseOptions .= "</a>";
+
+            $courseOptions .= "<span class='fa fa-list icon-options-course'";
+            $courseOptions .= "title='".get_string("studentmonitor:title_icon_list_participants", "report_studentmonitor")."' id='icon-list-'";
+            $courseOptions .= s($course->id)."></span>";
 
             $courseToReturn->fullname = $course->fullname;
             $courseToReturn->students = $course->students;

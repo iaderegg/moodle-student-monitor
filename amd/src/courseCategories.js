@@ -69,6 +69,7 @@ define(['jquery',
             {
                 "targets": 3,
                 "searchable": false,
+                "orderable": false,
                 "className": "text-center"
             }],
             "initComplete": function () {
