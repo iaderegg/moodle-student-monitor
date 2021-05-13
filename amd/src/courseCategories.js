@@ -72,9 +72,26 @@ define(['jquery',
                 "orderable": false,
                 "className": "text-center"
             }],
-            "initComplete": function () {
-
-            }
+            "buttons": [
+                {
+                    "extend": "copyHtml5",
+                    "exportOptions": {
+                        "columns": [0, 1, 2]
+                    }
+                },
+                {
+                    "extend": "csv",
+                    "exportOptions": {
+                        "columns": [0, 1, 2]
+                    }
+                },
+                {
+                    "extend": "print",
+                    "exportOptions": {
+                        "columns": [0, 1, 2]
+                    }
+                }
+            ]
         });
     }
 
