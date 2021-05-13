@@ -1,60 +1,60 @@
 <div id="accordion-category-{{ courseCategoryIdNumber }}" class="accordion-category">
     {{# courseCategories }}
-    <div class="card">
-        <div class="card-header" id="heading-{{ idnumber }}">
-            <div class="row">
-                <div class="col-8">
+        <div class="card">
+            <div class="card-header" id="heading-{{ idnumber }}">
+                <div class="row">
+                    <div class="col-8">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link category-button" id="id-{{ id }}" data-toggle="collapse"
+                                data-target="#card-body-{{ idnumber }}" aria-expanded="false" aria-controls="collapseOne">
+                                {{name}}
+                            </button>
+                        </h5>
+                    </div>
+                    <div class="col-4">
+                        Total de cursos: {{ coursecount }}
+                    </div>
+                </div>
+
+            </div>
+
+            <div id="card-body-{{ idnumber }}" class="collapse" aria-labelledby="heading-{{ idnumber }}"
+                data-parent="#accordion-category-{{ courseCategoryIdNumber }}">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+        {{# hasCourses }}
+            <div class="card">
+                <div class="card-header" id="heading-courses-{{ courseCategoryIdNumber }}">
                     <h5 class="mb-0">
-                        <button class="btn btn-link category-button" id="id-{{ id }}" data-toggle="collapse"
-                            data-target="#card-body-{{ idnumber }}" aria-expanded="false" aria-controls="collapseOne">
-                            {{name}}
+                        <button class="btn btn-link category-button" id="id-{{ courseCategoryIdNumber }}" data-toggle="collapse"
+                            data-target="#card-body-courses-{{ courseCategoryIdNumber }}" aria-expanded="false"
+                            aria-controls="collapseOne">
+                            Cursos
                         </button>
                     </h5>
                 </div>
-                <div class="col-4">
-                    Total de cursos: {{ coursecount }}
+
+                <div id="card-body-courses-{{ courseCategoryIdNumber }}" class="collapse"
+                    aria-labelledby="heading-courses-{{ courseCategoryIdNumber }}"
+                    data-parent="#accordion-category-{{ courseCategoryIdNumber }}">
+                    <div class="card-body">
+                        <table id="table-courses-{{ courseCategoryIdNumber }}" class="table table-striped">
+                        </table>
+                    </div>
                 </div>
             </div>
-
-        </div>
-
-        <div id="card-body-{{ idnumber }}" class="collapse" aria-labelledby="heading-{{ idnumber }}"
-            data-parent="#accordion-category-{{ courseCategoryIdNumber }}">
-            <div class="card-body">
-
-            </div>
-        </div>
-    </div>
-    {{# hasCourses }}
-    <div class="card">
-        <div class="card-header" id="heading-courses-{{ courseCategoryIdNumber }}">
-            <h5 class="mb-0">
-                <button class="btn btn-link category-button" id="id-{{ courseCategoryIdNumber }}" data-toggle="collapse"
-                    data-target="#card-body-courses-{{ courseCategoryIdNumber }}" aria-expanded="false"
-                    aria-controls="collapseOne">
-                    Cursos
-                </button>
-            </h5>
-        </div>
-
-        <div id="card-body-courses-{{ courseCategoryIdNumber }}" class="collapse"
-            aria-labelledby="heading-courses-{{ courseCategoryIdNumber }}"
-            data-parent="#accordion-category-{{ courseCategoryIdNumber }}">
-            <div class="card-body">
-                <table id="table-courses-{{ courseCategoryIdNumber }}" class="table table-striped">
-                </table>
-            </div>
-        </div>
-    </div>
-
-    {{/ hasCourses}}
+        {{/ hasCourses}}
     {{/ courseCategories }}
     {{^ courseCategories}}
-    {{# hasCourses }}
-    <table id="table-courses-{{ courseCategoryIdNumber }}" class="table table-striped">
-    </table>
-    {{/ hasCourses}}
+        {{# hasCourses }}
+            <table id="table-courses-{{ courseCategoryIdNumber }}" class="table table-striped">
+            </table>
+        {{/ hasCourses}}
+        {{^ hasCourses}}
+            <p>No se encuentran cursos en esta categoría.</p>
+        {{/ hasCourses}}
     {{/ courseCategories}}
-    
-
 </div>
