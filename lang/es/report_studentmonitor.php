@@ -28,5 +28,7 @@ $string['pluginname'] = 'Monitor de estudiantes';
 $string['title'] = 'Monitor';
 $string['studentmonitor:studentmonitor'] = "Monitor de estudiantes";
 
+// Management courses categories
+$string['studentmonitor:head_management_course_categories'] = "Categorias de cursos";
 $string['studentmonitor:title_icon_view_course'] = "Ver curso";
 $string['studentmonitor:title_icon_list_participants'] = "Listado de participantes";
