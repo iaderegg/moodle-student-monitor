@@ -32,3 +32,6 @@ $string['studentmonitor:studentmonitor'] = 'Students monitor';
 $string['studentmonitor:head_management_course_categories'] = "Course categories";
 $string['studentmonitor:title_icon_view_course'] = "View course";
 $string['studentmonitor:title_icon_list_participants'] = "List of participants";
+
+// List participants
+$string['studentmonitor:head_list_participants'] = "List of participants";
