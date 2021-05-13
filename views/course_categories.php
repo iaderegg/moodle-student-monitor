@@ -14,10 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
- * The Custom Report setup page.
+ * The course categories page.
  *
  * @package   report_studentmonitor
- * @copyright  2021 Iader E. Garcia G. <iaderegg@gmail.com>
+ * @copyright  2021 Iader E. Garcia G. <iadergg@gmail.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
