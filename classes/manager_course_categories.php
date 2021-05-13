@@ -55,8 +55,10 @@ class manager_course_categories {
     
     /**
      * get_courses_by_category
+     * 
+     * @param int $idCategory
      *
-     * @return void
+     * @return array
      */
     public function get_courses_by_category($idCategory){
 
@@ -65,27 +67,19 @@ class manager_course_categories {
         $table = "course";
         $select = "category = ".$idCategory." AND visible = 1";
 
-        $coursesToReturn = array();
-
         $courses = $DB->get_records_select($table, $select, null, 'fullname');
         
         foreach ($courses as $key => $course) {
-
-            $courseToReturn = new stdClass();
 
             $coursecontext = \context_course::instance($course->id);
             $professorsCount = count(get_enrolled_users($coursecontext, 'moodle/course:manageactivities', 0, 'u.username, u.id', 'u.username ASC'));
             $studentsCount = count(get_enrolled_users($coursecontext, 'mod/assignment:submit', 0, 'u.username, u.id', 'u.username ASC'));
 
-            $courseToReturn->fullname = $course->fullname;
-            $courseToReturn->professors = $professorsCount;
-            $courseToReturn->students = $studentsCount;
-
-            array_push($coursesToReturn, $courseToReturn);
-
+            $course->professors = $professorsCount;
+            $course->students = $studentsCount;
         }
 
-        return array_values($coursesToReturn);
+        return array_values($courses);
         
     }
 }

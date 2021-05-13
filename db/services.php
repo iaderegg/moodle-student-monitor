@@ -28,7 +28,7 @@ defined('MOODLE_INTERNAL') || die;
 $functions = array(
     'report_studentmonitor_get_course_categories' => array(
         'classname'          => 'report_studentmonitor_external',
-        'methodname'         => 'get_course_categories',
+        'methodname'         => 'get_data_table_course_categories',
         'description'        => 'Get course categories from the Moodle site.',
         'requiredcapability' => '',
         'type'               => 'read',

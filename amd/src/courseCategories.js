@@ -31,6 +31,8 @@ define(['jquery',
 
     function createTable(idNumberCourseCategory, courses) {
 
+        $('#table-courses-' + idNumberCourseCategory).html('');
+
         $('#table-courses-' + idNumberCourseCategory).DataTable({
             "destroy": true,
             "columns": [{
@@ -42,20 +44,32 @@ define(['jquery',
                     "data": "students"
                 },
                 {
-                    "title": "Ver",
+                    "title": "Profesores",
                     "data": "professors"
+                },
+                {
+                    "title": "Opciones",
+                    "data": "options"
                 }
             ],
             "data": courses,
-            "dom": 'Bfrtip',
+            "dom": 'Bfrt',
             "language": {
                 "url": "../assets/datatables/Spanish.json",
             },
             "order": [
-
+                [0, "desc"]
             ],
-            "columnDefs": [{
-
+            "columnDefs": [
+            {
+                "targets": [1, 2],
+                "searchable": false,
+                "className": "text-center"
+            },
+            {
+                "targets": 3,
+                "searchable": false,
+                "className": "text-center"
             }],
             "initComplete": function () {
 

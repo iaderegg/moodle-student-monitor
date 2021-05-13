@@ -42,7 +42,7 @@ class report_studentmonitor_external extends external_api
      * @return external_function_parameters
      * @since Moodle 3.9
      */
-    public function get_course_categories_parameters()
+    public function get_data_table_course_categories_parameters()
     {
         return new external_function_parameters(
             array(
@@ -57,17 +57,34 @@ class report_studentmonitor_external extends external_api
      * @param  int $parent
      * @return array with course categories JSON and warnings
      */
-    public function get_course_categories($categoryCourseId)
+    public function get_data_table_course_categories($categoryCourseId)
     {
         $courseCategoriesArray = array();
+        $coursesToReturn = array();
 
         $courseCategoriesManager = new manager_course_categories;
         $courseCategoriesArray = $courseCategoriesManager->get_course_categories($categoryCourseId);
         $courses = $courseCategoriesManager->get_courses_by_category($categoryCourseId);
 
+        foreach($courses as $key => $course){
+
+            $courseToReturn = new stdClass();
+
+            $courseOptions = "<span class='fa fa-eye icon-options-course' id='icon-view-'".s($course->id)."></span>";
+            $courseOptions .= "<span class='fa fa-list icon-options-course' id='icon-list-'".s($course->id)."></span>";
+
+            $courseToReturn->fullname = $course->fullname;
+            $courseToReturn->students = $course->students;
+            $courseToReturn->professors = $course->professors;
+            $courseToReturn->options = $courseOptions;
+
+            array_push($coursesToReturn, $courseToReturn);
+
+        }
+
         return array(
             'course_categories' => json_encode($courseCategoriesArray),
-            'courses' => json_encode($courses),
+            'courses' => json_encode($coursesToReturn),
             'warnings' => []
         );
     }
@@ -78,7 +95,7 @@ class report_studentmonitor_external extends external_api
      * @return external_description
      * @since Moodle 3.9
      */
-    public function get_course_categories_returns()
+    public function get_data_table_course_categories_returns()
     {
         return new external_single_structure(array(
             'course_categories' => new external_value(PARAM_RAW, 'JSON for course categories.'),
