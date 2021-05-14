@@ -25,8 +25,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Monitor de estudiantes';
-$string['title'] = 'Monitor';
+$string['studentmonitor:title'] = 'Monitor de estudiantes';
+
+// Index
 $string['studentmonitor:studentmonitor'] = "Monitor de estudiantes";
+$string['studentmonitor:categories'] = "Categorias";
+$string['studentmonitor:search_student'] = "Buscar estudiante";
+$string['studentmonitor:search_course'] = "Buscar curso";
 
 // Management courses categories
 $string['studentmonitor:head_management_course_categories'] = "Categorias de cursos";
@@ -35,6 +40,12 @@ $string['studentmonitor:title_icon_list_participants'] = "Listado de participant
 
 // List participants
 $string['studentmonitor:head_list_participants'] = "Listado de participantes";
+$string['studentmonitor:title_course'] = "Datos del curso";
+$string['studentmonitor:course_fullname'] = "Nombre largo";
+$string['studentmonitor:course_shortname'] = "Nombre corto";
+$string['studentmonitor:course_startdate'] = "Fecha de inicio";
+$string['studentmonitor:course_enddate'] = "Fecha de finalización";
+$string['studentmonitor:course_counter_students'] = "Cantidad de estudiantes";
 $string['studentmonitor:title_professors'] = "Listado de profesores";
 $string['studentmonitor:title_student'] = "Listado de estudiantes";
 $string['studentmonitor:username'] = "Nombre de usuario";

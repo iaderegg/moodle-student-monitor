@@ -1,5 +1,41 @@
 <div class="row">
     <div class="col-12">
+        <h3>{{# str }}studentmonitor:title_course, report_studentmonitor{{/ str}}</h3>
+        <hr>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <table id="table-data-course" class="table table-striped">
+            <tbody>
+                <tr>
+                    <th class="text-left col-4">{{# str}} studentmonitor:course_fullname, report_studentmonitor {{/ str}}:</th>
+                    <td>XXXXX</td>
+                </tr>
+                <tr>
+                    <th class="text-left col-4">{{# str}} studentmonitor:course_shortname, report_studentmonitor {{/ str}}:</th>
+                    <td>XXXXX</td>
+                </tr>
+                <tr>
+                    <th class="text-left col-4">{{# str}} studentmonitor:course_startdate, report_studentmonitor {{/ str}}:</th>
+                    <td>XXXXX</td>
+                </tr>
+                <tr>
+                    <th class="text-left col-4">{{# str}} studentmonitor:course_enddate, report_studentmonitor {{/ str}}:</th>
+                    <td>XXXXX</td>
+                </tr>
+                <tr>
+                    <th class="text-left col-4">{{# str}} studentmonitor:course_counter_students, report_studentmonitor {{/ str}}:</th>
+                    <td>XXXXX</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-8">
         <h3>{{# str }}studentmonitor:title_professors, report_studentmonitor{{/ str}}</h3>
         <hr>
     </div>
@@ -7,7 +43,7 @@
 
 {{# hasProfessors}}
 <div class="row">
-    <div class="col-12">
+    <div class="col-8">
         <table id="table-course-proffesors" class="table table-striped">
             <thead>
                 <th>{{# str}}studentmonitor:username, report_studentmonitor{{/ str}}</th>

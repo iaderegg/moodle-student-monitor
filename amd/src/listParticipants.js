@@ -35,7 +35,7 @@ define(['jquery',
             $(document).ready(function () {
 
                 $('#table-course-students').DataTable({
-                    "dom": 'Bfrt',
+                    "dom": 'Bfrtip',
                     "language": {
                         "url": "../assets/datatables/Spanish.json",
                     },
@@ -66,7 +66,8 @@ define(['jquery',
                                 "columns": [0, 1, 2, 3]
                             }
                         }
-                    ]
+                    ],
+                    "paging": true
                 });
 
             });
