@@ -35,3 +35,11 @@ $string['studentmonitor:title_icon_list_participants'] = "Listado de participant
 
 // List participants
 $string['studentmonitor:head_list_participants'] = "Listado de participantes";
+$string['studentmonitor:title_professors'] = "Listado de profesores";
+$string['studentmonitor:title_student'] = "Listado de estudiantes";
+$string['studentmonitor:username'] = "Nombre de usuario";
+$string['studentmonitor:name'] = "Nombre(s)";
+$string['studentmonitor:lastname'] = "Apellido(s)";
+$string['studentmonitor:email'] = "Correo electrónico";
+$string['studentmonitor:no_has_professors'] = "No hay profesores matriculados en este curso.";
+$string['studentmonitor:no_has_students'] = "No hay estudiantes matriculados en este curso.";
