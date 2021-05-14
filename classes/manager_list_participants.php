@@ -35,8 +35,25 @@ class manager_list_participants {
     public function __construct() {
 
     }
+    
+    /**
+     * Get list of course participants.
+     *
+     * @param  int $courseId
+     * @return array course participants
+     */
+    public function get_list_participants($courseId){
 
-    public function get_list_participants($courseid){
+        $courseParticipants = array();
 
+        $coursecontext = \context_course::instance($courseId);
+        $selectParameters = "u.username, u.firstname, u.lastname, u.email";
+        $professors = get_enrolled_users($coursecontext, 'moodle/course:manageactivities', 0, $selectParameters, 'u.username ASC');
+        $students = get_enrolled_users($coursecontext, 'mod/assignment:submit', 0, $selectParameters, 'u.username ASC');
+
+        $courseParticipants['professors'] = array_values($professors);
+        $courseParticipants['students'] = array_values($students);
+
+        return $courseParticipants;
     }
 }

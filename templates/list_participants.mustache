@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-12">
+        <h3>{{# str }}studentmonitor:title_professors, report_studentmonitor{{/ str}}</h3>
+        <hr>
+    </div>
+</div>
+
+{{# hasProfessors}}
+<div class="row">
+    <div class="col-12">
+        <table id="table-course-proffesors" class="table table-striped">
+            <thead>
+                <th>{{# str}}studentmonitor:username, report_studentmonitor{{/ str}}</th>
+                <th>{{# str}}studentmonitor:name, report_studentmonitor{{/ str}}</th>
+                <th>{{# str}}studentmonitor:lastname, report_studentmonitor{{/ str}}</th>
+                <th>{{# str}}studentmonitor:email, report_studentmonitor{{/ str}}</th>
+            </thead>
+            <tbody>
+                {{# professors}}
+                <tr>
+                    <td>{{username}}</td>
+                    <td>{{firstname}}</td>
+                    <td>{{lastname}}</td>
+                    <td>{{email}}</td>
+                </tr>
+                {{/ professors}}
+            </tbody>
+        </table>
+    </div>
+</div>
+{{/ hasProfessors}}
+{{^ hasProfessors}}
+<p>{{#str}}studentmonitor:no_has_professors, report_studentmonitor{{/str}}</p>
+{{/ hasProfessors}}
+
+
+<div class="row">
+    <div class="col-12">
+        <h3>{{# str }}studentmonitor:title_student, report_studentmonitor{{/ str}}</h3>
+        <hr>
+    </div>
+</div>
+
+{{# hasStudents}}
+<div class="row">
+    <div class="col-12">
+        <table id="table-course-students" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{# str}}studentmonitor:username, report_studentmonitor{{/ str}}</th>
+                    <th>{{# str}}studentmonitor:name, report_studentmonitor{{/ str}}</th>
+                    <th>{{# str}}studentmonitor:lastname, report_studentmonitor{{/ str}}</th>
+                    <th>{{# str}}studentmonitor:email, report_studentmonitor{{/ str}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{# students}}
+                <tr>
+                    <td>{{username}}</td>
+                    <td>{{firstname}}</td>
+                    <td>{{lastname}}</td>
+                    <td>{{email}}</td>
+                </tr>
+                {{/ students}}
+            </tbody>
+        </table>
+    </div>
+</div>
+{{/ hasStudents}}
+{{^ hasStudents}}
+<p>{{#str}}studentmonitor:no_has_students, report_studentmonitor{{/str}}</p>
+{{/ hasStudents}}

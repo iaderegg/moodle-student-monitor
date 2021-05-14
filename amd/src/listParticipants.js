@@ -31,6 +31,45 @@ define(['jquery',
 
     return {
         init: function () {
+
+            $(document).ready(function () {
+
+                $('#table-course-students').DataTable({
+                    "dom": 'Bfrt',
+                    "language": {
+                        "url": "../assets/datatables/Spanish.json",
+                    },
+                    "order": [
+                        [0, "asc"]
+                    ],
+                    "columnDefs": [
+                    {
+                        "targets": [0, 1, 2],
+                        "className": "dt-body-center"
+                    }],
+                    "buttons": [
+                        {
+                            "extend": "copyHtml5",
+                            "exportOptions": {
+                                "columns": [0, 1, 2, 3]
+                            }
+                        },
+                        {
+                            "extend": "csv",
+                            "exportOptions": {
+                                "columns": [0, 1, 2, 3]
+                            }
+                        },
+                        {
+                            "extend": "print",
+                            "exportOptions": {
+                                "columns": [0, 1, 2, 3]
+                            }
+                        }
+                    ]
+                });
+
+            });
         }
     };
 });

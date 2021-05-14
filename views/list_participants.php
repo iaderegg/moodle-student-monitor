@@ -27,10 +27,26 @@ require_once($CFG->libdir.'/adminlib.php');
 
 require_login();
 
+$courseId = required_param('id', PARAM_INT); // Course ID.
+
+$managerListParticipants = new report_studentmonitor\manager_list_participants();
+$courseParticipants = $managerListParticipants->get_list_participants($courseId);
+
+$data = new stdClass();
+$data->professors = $courseParticipants['professors'];
+$data->students = $courseParticipants['students'];
+
+if(count($data->professors) > 0){
+    $data->hasProfessors = 1;
+}
+
+if(count($data->students) > 0){
+    $data->hasStudents = 1;
+}
+
 $url = new moodle_url('/report/studentmonitor/list_participants.php');
 
 $PAGE->set_context(context_system::instance());
-
 $PAGE->set_url($url);
 $PAGE->set_title(get_string("title", "report_studentmonitor"));
 $PAGE->set_heading(get_string("studentmonitor:head_list_participants", "report_studentmonitor"));
@@ -40,15 +56,8 @@ $PAGE->requires->css('/report/studentmonitor/styles/datatables.min.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/dataTables.bootstrap4.min.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/buttons.bootstrap4.min.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/sweetalert.css', true);
-$PAGE->requires->css('/report/studentmonitor/assets/font-awesome/css/font-awesome.min.css', true);
 
-//$PAGE->requires->js_call_amd('report_studentmonitor/courseCategories', 'init');
-
-// $managerCourseCategories = new report_studentmonitor\manager_course_categories();
-// $courseCategories = $managerCourseCategories->get_course_categories(0);
-
-$data = new stdClass();
-//$data->course_categories = $courseCategories;
+$PAGE->requires->js_call_amd('report_studentmonitor/listParticipants', 'init');
 
 echo $OUTPUT->header();
 
