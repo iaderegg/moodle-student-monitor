@@ -30,9 +30,16 @@ require_login();
 $courseId = required_param('id', PARAM_INT); // Course ID.
 
 $managerListParticipants = new report_studentmonitor\manager_list_participants();
+$courseData = $managerListParticipants->get_course_data($courseId);
 $courseParticipants = $managerListParticipants->get_list_participants($courseId);
 
 $data = new stdClass();
+$data->course_fullname = $courseData['fullname'];
+$data->course_shortname = $courseData['shortname'];
+$data->course_startdate = $courseData['start_date'];
+$data->course_enddate = $courseData['end_date'];
+$data->course_counter_students = $courseData['counter_students'];
+$data->columnItems = $courseParticipants['columns'];
 $data->professors = $courseParticipants['professors'];
 $data->students = $courseParticipants['students'];
 
@@ -48,7 +55,7 @@ $url = new moodle_url('/report/studentmonitor/list_participants.php');
 
 $PAGE->set_context(context_system::instance());
 $PAGE->set_url($url);
-$PAGE->set_title(get_string("title", "report_studentmonitor"));
+$PAGE->set_title(get_string("studentmonitor:title", "report_studentmonitor"));
 $PAGE->set_heading(get_string("studentmonitor:head_list_participants", "report_studentmonitor"));
 
 $PAGE->requires->css('/report/studentmonitor/styles/list_participants.css', true);

@@ -33,7 +33,7 @@ $url = new moodle_url('/report/studentmonitor/student_report.php');
 $PAGE->set_context(context_system::instance());
 
 $PAGE->set_url($url);
-$PAGE->set_title(get_string("title", "report_studentmonitor"));
+$PAGE->set_title(get_string("studentmonitor:title", "report_studentmonitor"));
 $PAGE->set_heading(get_string("studentmonitor:studentmonitor", "report_studentmonitor"));
 
 $PAGE->requires->css('/report/studentmonitor/styles/index.css', true);

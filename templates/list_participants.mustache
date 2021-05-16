@@ -11,23 +11,23 @@
             <tbody>
                 <tr>
                     <th class="text-left col-4">{{# str}} studentmonitor:course_fullname, report_studentmonitor {{/ str}}:</th>
-                    <td>XXXXX</td>
+                    <td>{{course_fullname}}</td>
                 </tr>
                 <tr>
                     <th class="text-left col-4">{{# str}} studentmonitor:course_shortname, report_studentmonitor {{/ str}}:</th>
-                    <td>XXXXX</td>
+                    <td>{{course_shortname}}</td>
                 </tr>
                 <tr>
                     <th class="text-left col-4">{{# str}} studentmonitor:course_startdate, report_studentmonitor {{/ str}}:</th>
-                    <td>XXXXX</td>
+                    <td>{{course_startdate}}</td>
                 </tr>
                 <tr>
                     <th class="text-left col-4">{{# str}} studentmonitor:course_enddate, report_studentmonitor {{/ str}}:</th>
-                    <td>XXXXX</td>
+                    <td>{{course_enddate}}</td>
                 </tr>
                 <tr>
                     <th class="text-left col-4">{{# str}} studentmonitor:course_counter_students, report_studentmonitor {{/ str}}:</th>
-                    <td>XXXXX</td>
+                    <td>{{course_counter_students}}</td>
                 </tr>
             </tbody>
         </table>
@@ -83,19 +83,25 @@
         <table id="table-course-students" class="table table-striped">
             <thead>
                 <tr>
-                    <th>{{# str}}studentmonitor:username, report_studentmonitor{{/ str}}</th>
                     <th>{{# str}}studentmonitor:name, report_studentmonitor{{/ str}}</th>
                     <th>{{# str}}studentmonitor:lastname, report_studentmonitor{{/ str}}</th>
+                    <th>{{# str}}studentmonitor:username, report_studentmonitor{{/ str}}</th>
                     <th>{{# str}}studentmonitor:email, report_studentmonitor{{/ str}}</th>
+                    {{# columnItems}}
+                    <th>{{{columname}}}</th>
+                    {{/ columnItems}}
                 </tr>
             </thead>
             <tbody>
                 {{# students}}
                 <tr>
-                    <td>{{username}}</td>
                     <td>{{firstname}}</td>
                     <td>{{lastname}}</td>
+                    <td>{{username}}</td>
                     <td>{{email}}</td>
+                    {{# columnItems}}
+                    <th>{{{grade}}}</th>
+                    {{/ columnItems}}
                 </tr>
                 {{/ students}}
             </tbody>

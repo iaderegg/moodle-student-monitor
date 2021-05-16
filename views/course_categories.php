@@ -32,7 +32,7 @@ $url = new moodle_url('/report/studentmonitor/course_categories.php');
 $PAGE->set_context(context_system::instance());
 
 $PAGE->set_url($url);
-$PAGE->set_title(get_string("title", "report_studentmonitor"));
+$PAGE->set_title(get_string("studentmonitor:title", "report_studentmonitor"));
 $PAGE->set_heading(get_string("studentmonitor:head_management_course_categories", "report_studentmonitor"));
 
 $PAGE->requires->css('/report/studentmonitor/styles/course_categories.css', true);

@@ -23,6 +23,8 @@
 
 require_once '../../../config.php';
 
+global $CFG;
+
 require_once($CFG->libdir.'/adminlib.php');
 
 require_login();
@@ -44,6 +46,9 @@ $PAGE->requires->js_call_amd('report_studentmonitor/studentmonitor', 'init');
 echo $OUTPUT->header();
 
 $data = new stdClass();
+$data->url_categories = $CFG->wwwroot."/report/studentmonitor/views/course_categories.php";
+$data->url_search_student = "";
+$data->url_search_course = "";
 
 echo $OUTPUT->render_from_template('report_studentmonitor/index', $data);
 
