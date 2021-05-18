@@ -49,5 +49,17 @@ $functions = array(
         'enabled'            => 1,
         'downloadfiles'      => 0,
         'uploadfiles'        => 0
+    ),
+    'report_studentmonitor_get_student_course_grades' => array(
+        'classname'          => 'report_studentmonitor_external',
+        'methodname'         => 'get_student_course_grades',
+        'description'        => 'Get students course grades.',
+        'requiredcapability' => '',
+        'type'               => 'read',
+        'ajax'               => true,
+        'restrictedusers'    => 0,
+        'enabled'            => 1,
+        'downloadfiles'      => 0,
+        'uploadfiles'        => 0
     )
 );

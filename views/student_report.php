@@ -22,11 +22,18 @@
  */
 
 require_once '../../../config.php';
-require_once '../lib.php';
 
 require_once($CFG->libdir.'/adminlib.php');
 
 require_login();
+
+$studentId = required_param('id', PARAM_INT); // User ID.
+
+$managerStudentReport = new report_studentmonitor\manager_student_report();
+
+$courses = $managerStudentReport->get_courses_user($studentId);
+
+$grades = $managerStudentReport->get_grades_course_by_student(3, $studentId, 0);
 
 $url = new moodle_url('/report/studentmonitor/student_report.php');
 
@@ -34,19 +41,20 @@ $PAGE->set_context(context_system::instance());
 
 $PAGE->set_url($url);
 $PAGE->set_title(get_string("studentmonitor:title", "report_studentmonitor"));
-$PAGE->set_heading(get_string("studentmonitor:studentmonitor", "report_studentmonitor"));
+$PAGE->set_heading(get_string("studentmonitor:report_student", "report_studentmonitor"));
 
-$PAGE->requires->css('/report/studentmonitor/styles/index.css', true);
+$PAGE->requires->css('/report/studentmonitor/styles/student_report.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/sweetalert.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/datatables.min.css', true);
 
-$PAGE->requires->js_call_amd('report_studentmonitor/studentmonitor', 'init');
+$PAGE->requires->js_call_amd('report_studentmonitor/studentReport', 'init');
 
 echo $OUTPUT->header();
 
 $data = new stdClass();
+$data->courses = $courses;
 
-echo $OUTPUT->render_from_template('report_studentmonitor/index', $data);
+echo $OUTPUT->render_from_template('report_studentmonitor/student_report', $data);
 
 echo $OUTPUT->footer();
 

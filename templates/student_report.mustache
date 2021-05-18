@@ -1,0 +1,91 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+    
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+    
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+    GNU General Public License for more details.
+    
+    You should have received a copy of the GNU General Public License
+    along with Moodle. If not, see
+    <http: //www.gnu.org/licenses />.
+    }}
+    {{!
+    @author Iader E. Garcia G. <iadergg@gmail.com>
+    @template report_studentmonitor/student_report
+    
+    Context variables required for this template:
+    
+    Example context (json):
+    {
+    
+    }
+}}
+
+<div class="row">
+    <div class="col-12">
+        <h3>{{# str }}studentmonitor:title_student_data, report_studentmonitor{{/ str}}</h3>
+        <hr>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <table id="table-data-course" class="table table-striped">
+            <tbody>
+                <tr>
+                    <th class="text-left col-4">{{# str}} studentmonitor:student_fullname, report_studentmonitor {{/ str}}:</th>
+                    <td>{{}}</td>
+                </tr>
+                <tr>
+                    <th class="text-left col-4">{{# str}} studentmonitor:student_username, report_studentmonitor {{/ str}}:</th>
+                    <td>{{}}</td>
+                </tr>
+                <tr>
+                    <th class="text-left col-4">{{# str}} studentmonitor:student_lastaccess, report_studentmonitor {{/ str}}:</th>
+                    <td>{{}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h3>{{# str }}studentmonitor:student_courses, report_studentmonitor{{/ str}}</h3>
+        <hr>
+    </div>
+</div>
+
+<div id="accordion-student-report">
+    {{# courses }}
+    <div class="card">
+        <div class="card-header" id="heading-{{ id }}">
+            <div class="row">
+                <div class="col-8">
+                    <h5 class="mb-0">
+                        <button class="btn btn-link course-button" id="id-{{ id }}" data-toggle="collapse" data-target="#card-body-{{ id }}" aria-expanded="false"
+                            aria-controls="collapseOne">
+                            {{fullname}}
+                        </button>
+                    </h5>
+                </div>
+            </div>
+        </div>
+
+        <div id="card-body-{{ id }}" class="collapse" aria-labelledby="heading-{{ id }}" data-parent="#accordion-student-report">
+            <div class="card-body">
+
+            
+                                
+            </div>
+        </div>
+    </div>
+    <br>
+    {{/ courses }}
+</div>

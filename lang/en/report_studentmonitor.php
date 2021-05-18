@@ -56,3 +56,11 @@ $string['studentmonitor:lastname'] = "Lastname";
 $string['studentmonitor:email'] = "Email";
 $string['studentmonitor:no_has_professors'] = "There are no professors enrolled in this course.";
 $string['studentmonitor:no_has_students'] = "There are no students enrolled in this course.";
+
+// Student report
+$string['studentmonitor:report_student'] = "Student report";
+$string['studentmonitor:title_student_data'] = "Student data";
+$string['studentmonitor:student_fullname'] = "Fullname";
+$string['studentmonitor:student_username'] = "Username";
+$string['studentmonitor:student_lastaccess'] = "Last access";
+$string['studentmonitor:student_courses'] = "Student courses";

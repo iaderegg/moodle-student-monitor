@@ -27,6 +27,7 @@ defined('MOODLE_INTERNAL') || die;
 require_once("$CFG->libdir/externallib.php");
 
 use report_studentmonitor\manager_course_categories;
+use report_studentmonitor\manager_student_report;
 
 /**
  * Report Student Monitor functions
@@ -111,6 +112,54 @@ class report_studentmonitor_external extends external_api
         return new external_single_structure(array(
             'course_categories' => new external_value(PARAM_RAW, 'JSON for course categories.'),
             'courses' => new external_value(PARAM_RAW, 'JSON for courses in a category.'),
+            'warnings' => new external_warnings()
+        ));
+    }
+    
+    /**
+     * Returns the description of the external function parameters.
+     * 
+     * @return external_function_parameters
+     * @since Moodle 3.9
+     */
+    public function get_student_course_grades_parameters(){
+
+        return new external_function_parameters(
+            array(
+                'courseId' => new external_value(PARAM_INT, 'ID of the course'),
+                'userId' => new external_value(PARAM_INT, 'ID of the user')
+            )
+        );        
+    }
+
+    /**
+     * Get student's course grades
+     *
+     * @param  mixed $courseId
+     * @param  mixed $userId
+     * @return array with student's course grades
+     */
+    public function get_student_course_grades($courseId, $userId){
+
+        $studentReportManager = new manager_student_report;
+        $studentGrades = $studentReportManager->get_grades_course_by_student($courseId, $userId);
+
+        return array(
+            'grades' => json_encode($studentGrades),
+            'warnings' => []
+        );
+
+    }
+
+    /**
+     * Returns the description of the external function get student's course grades return value.
+     *
+     * @return external_description
+     * @since Moodle 3.9
+     */
+    public function get_student_course_grades_returns(){
+        return new external_single_structure(array(
+            'grades' => new external_value(PARAM_RAW, 'JSON for course categories.'),
             'warnings' => new external_warnings()
         ));
     }
