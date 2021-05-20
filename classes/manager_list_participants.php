@@ -114,7 +114,7 @@ class manager_list_participants {
         if($course->enddate <= 0){
             $course->end_date = get_string("studentmonitor:course_no_enddate", "report_studentmonitor");
         }else{
-            $course->end_date = date("DD MM YYYY", $course->enddate);
+            $course->end_date = date("d-m-Y", $course->enddate);
         }
 
         return (array)$course;
