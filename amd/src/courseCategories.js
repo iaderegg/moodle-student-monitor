@@ -55,7 +55,7 @@ define(['jquery',
             "data": courses,
             "dom": 'Bfrt',
             "language": {
-                "url": "../assets/datatables/Spanish.json",
+                "url": "assets/datatables/Spanish.json",
             },
             "order": [
                 [0, "desc"]

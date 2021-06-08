@@ -79,7 +79,7 @@ class report_studentmonitor_external extends external_api
             $courseOptions .= s($course->id)."></span>";
             $courseOptions .= "</a>";
 
-            $courseOptions .= "<a href='".$CFG->wwwroot."/report/studentmonitor/views/list_participants.php?id=".$course->id."' target='_blank'>";
+            $courseOptions .= "<a href='".$CFG->wwwroot."/report/studentmonitor/list_participants.php?id=".$course->id."' target='_blank'>";
             $courseOptions .= "<span class='fa fa-list icon-options-course'";
             $courseOptions .= "title='".get_string("studentmonitor:title_icon_list_participants", "report_studentmonitor")."' id='icon-list-'";
             $courseOptions .= s($course->id)."></span>";

@@ -37,7 +37,7 @@ define(['jquery',
                 $('#table-course-students').DataTable({
                     "dom": 'Bfrtip',
                     "language": {
-                        "url": "../assets/datatables/Spanish.json",
+                        "url": "assets/datatables/Spanish.json",
                     },
                     "order": [
                         [0, "asc"]
