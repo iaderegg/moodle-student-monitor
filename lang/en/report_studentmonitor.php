@@ -24,11 +24,12 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Student monitor';
-$string['studentmonitor:title'] = 'Student monitor';
+$string['pluginname'] = "Student monitor";
+$string['studentmonitor:title'] = "Student monitor";
+$string['studentmonitor:index'] = "Index";
 
 // Index
-$string['studentmonitor:studentmonitor'] = 'Students monitor';
+$string['studentmonitor:studentmonitor'] = "Students monitor";
 $string['studentmonitor:categories'] = "Categories";
 $string['studentmonitor:search_student'] = "Search student";
 $string['studentmonitor:search_course'] = "Search course";

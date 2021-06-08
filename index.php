@@ -14,44 +14,43 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 /**
- * The course categories page.
+ * The Custom Report setup page.
  *
  * @package   report_studentmonitor
- * @copyright  2021 Iader E. Garcia G. <iadergg@gmail.com>
+ * @copyright  2021 Iader E. Garcia G. <iaderegg@gmail.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-require_once '../../../config.php';
+require_once '../../config.php';
+
+global $CFG;
 
 require_once($CFG->libdir.'/adminlib.php');
 
 require_login();
 
-$url = new moodle_url('/report/studentmonitor/course_categories.php');
+$url = new moodle_url('/report/studentmonitor/index.php');
 
 $PAGE->set_context(context_system::instance());
 
 $PAGE->set_url($url);
 $PAGE->set_title(get_string("studentmonitor:title", "report_studentmonitor"));
-$PAGE->set_heading(get_string("studentmonitor:head_management_course_categories", "report_studentmonitor"));
+$PAGE->set_heading(get_string("studentmonitor:studentmonitor", "report_studentmonitor"));
 
-$PAGE->requires->css('/report/studentmonitor/styles/course_categories.css', true);
-$PAGE->requires->css('/report/studentmonitor/styles/datatables.min.css', true);
-$PAGE->requires->css('/report/studentmonitor/styles/dataTables.bootstrap4.min.css', true);
-$PAGE->requires->css('/report/studentmonitor/styles/buttons.bootstrap4.min.css', true);
+$PAGE->requires->css('/report/studentmonitor/styles/index.css', true);
 $PAGE->requires->css('/report/studentmonitor/styles/sweetalert.css', true);
+$PAGE->requires->css('/report/studentmonitor/styles/datatables.min.css', true);
 
-$PAGE->requires->js_call_amd('report_studentmonitor/courseCategories', 'init');
-
-$managerCourseCategories = new report_studentmonitor\manager_course_categories();
-$courseCategories = $managerCourseCategories->get_course_categories(0);
-
-$data = new stdClass();
-$data->course_categories = $courseCategories;
+$PAGE->requires->js_call_amd('report_studentmonitor/studentmonitor', 'init');
 
 echo $OUTPUT->header();
 
-echo $OUTPUT->render_from_template('report_studentmonitor/course_categories', $data);
+$data = new stdClass();
+$data->url_categories = $CFG->wwwroot."/report/studentmonitor/views/course_categories.php";
+$data->url_search_student = "";
+$data->url_search_course = "";
+
+echo $OUTPUT->render_from_template('report_studentmonitor/index', $data);
 
 echo $OUTPUT->footer();
 

@@ -24,8 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['pluginname'] = 'Monitor de estudiantes';
-$string['studentmonitor:title'] = 'Monitor de estudiantes';
+$string['pluginname'] = "Monitor de estudiantes";
+$string['studentmonitor:title'] = "Monitor de estudiantes";
+$string['studentmonitor:index'] = "Index";
 
 // Index
 $string['studentmonitor:studentmonitor'] = "Monitor de estudiantes";
